@@ -19,6 +19,7 @@ import androidx.compose.ui.platform.LocalContext
 
 @Composable
 fun MainScreen(
+    vm:MainScreenViewModel ,
     text: String
 ) {
     val context = LocalContext.current
