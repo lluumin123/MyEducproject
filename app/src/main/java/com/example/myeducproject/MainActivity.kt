@@ -1,19 +1,25 @@
 package com.example.myeducproject
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import com.example.myeducproject.ui.theme.MyEducprojectTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+        Log.d("TAG", "onCreate: Created")
         setContent {
-            MyEducprojectTheme {
-                MainScreen("Hello World!")
-            }
+            MainScreen()
         }
+    }
+
+    override fun onDestroy() {
+        Log.d("TAG", "onDestroy: Destroyed")
+        super.onDestroy()
     }
 }
